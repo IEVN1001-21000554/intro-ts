@@ -1,29 +1,42 @@
-class Figura{
-        nombre:string;
-        base:number;
-        altura:number;
-        resultado:number;
-        constructor(nombre:string, resultado:number){
-            this.nombre=nombre;
-            this.base=5;
-            this.altura=6;
-            this.resultado=resultado;
-        }
-        imprimir():void{
-            console.log(`El area del ${this.nombre} es ${this.resultado}`);
-        }
-        AreaPrisma(base:number, altura:number):number{
-            this.nombre='Prisma';
-            let areabase = this.base*this.base;
-            this.resultado = areabase*this.altura;
-            return this.resultado;
-        }
+export class Figura {
+    aRectangulo: number;
+    aTriangulo: number;
+    aCirculo: number;
 
-        AreaPiramide(base:number, altura:number):void{
+    constructor(aRectangulo: number, aTriangulo: number, aCirculo: number) {
+        this.aRectangulo = aRectangulo;
+        this.aTriangulo = aTriangulo;
+        this.aCirculo = aCirculo;
+    }
 
-        }
-        AreaCilindro(base:number, radio:number):void{
+    AreaRectangulo(base:number, altura:number): number {
+        let nombre = 'rectangulo';
+        this.aRectangulo = base * altura;
+        console.log(`El área del ${nombre} es ${this.aRectangulo}`);
+        return this.aRectangulo;
+    }
 
-        }
-        
+    AreaTriangulo(base:number, altura:number): number {
+        let nombre = 'triangulo';
+        this.aTriangulo = (base * altura) / 2;
+        console.log(`El área del ${nombre} es ${this.aTriangulo}`);
+        return this.aTriangulo;
+    }
+
+    AreaCirculo(radio:number): number {
+        let nombre = 'circulo';
+        this.aCirculo = 3.1416 * radio * radio;
+        console.log(`El área del ${nombre} es ${this.aCirculo}`);
+        return this.aCirculo;
+    }
 }
+
+let rectangulo = new Figura(0,0,0);
+rectangulo.AreaRectangulo(10,25);
+
+let triangulo = new Figura(0,0,0);
+triangulo.AreaTriangulo(5,6);
+
+let circulo = new Figura(0,0,0);
+circulo.AreaCirculo(10);
+
